@@ -1,9 +1,11 @@
 <h1>New Article</h1>
 
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>  
-# equivalent to form_with model: Article.new do |form| (maybe not local: true? unsure)
+<%# equivalent to form_with model: Article.new do |form| (maybe not local: true? unsure) %>
 
-<%= render 'form' %>
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>  
+
+  <%= render 'form' %>
+<% end %>
 
 <%= link_to 'Back', articles_path %>
 

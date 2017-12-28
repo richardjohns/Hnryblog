@@ -1,9 +1,12 @@
 <h1>Edit article</h1>
- 
+
+<%# form_with(model: @article) supplies actual db data to the form
+form_with(scope: :article) supplies just the keys / fields but no data filled in %>
+
 <%= form_with(model: @article) do |form| %>
-# form_with(model: @article) supplies actual db data to the form
-# form_with(scope: :article) supplies just the keys / fields but no data filled in
  
-<%= render 'form' %>
+  <%= render 'form' %>
+<% end %>
+
  
 <%= link_to 'Back', articles_path %>
