@@ -7,18 +7,26 @@
     <%= content_tag :div, class: "media-body" do -%>
         <h5 class="mt-0"><%= @article.title %></h5>
         <p><%= @article.text %><p/>
+
+        <h5 class="mt-0">Comments</h5>
+            <div class="media mt-3">
+                <a class="d-flex pr-3" href="#">
+                    <img src="https://placehold.it/64x64" alt="Generic placeholder image">
+                </a>
+                <div class="media-body">
+                    <%= render @article.comments%>
+                </div>
+            </div>
+
     <% end -%>
     <% end -%>
 <% end -%>
 
-<h5>Comments</h5>
-    <%= render @article.comments %>
- 
 <h5>Add a comment:</h5>
     <%= render 'comments/form' %>
 
- 
 <%= link_to 'Edit', edit_article_path(@article), :class => "btn btn-primary btn-sm secondary-color-dark" %>
+
 <%= link_to 'Back', articles_path, :class => "btn btn-primary btn-sm secondary-color-dark" %>
 
 <% end -%>
