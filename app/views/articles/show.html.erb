@@ -1,19 +1,24 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+<%= render 'nav' %>
 
-<h2>Comments</h2>
+<%= content_tag :div, class: "container-fluid" do -%>
+
+<%= content_tag :div, class: "media d-flex" do -%>
+    <%= content_tag :img, class: "align-self-start mr-3", src: "http://via.placeholder.com/64x64" do -%>
+    <%= content_tag :div, class: "media-body" do -%>
+        <h5 class="mt-0"><%= @article.title %></h5>
+        <p><%= @article.text %><p/>
+    <% end -%>
+    <% end -%>
+<% end -%>
+
+<h5>Comments</h5>
     <%= render @article.comments %>
  
-<h2>Add a comment:</h2>
+<h5>Add a comment:</h5>
     <%= render 'comments/form' %>
 
  
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Edit', edit_article_path(@article), :class => "btn btn-primary btn-sm secondary-color-dark" %>
+<%= link_to 'Back', articles_path, :class => "btn btn-primary btn-sm secondary-color-dark" %>
+
+<% end -%>
