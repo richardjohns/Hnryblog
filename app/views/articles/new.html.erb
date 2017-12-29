@@ -1,11 +1,25 @@
-<h1>New Article</h1>
+<%= render 'nav' %>
 
-<%# equivalent to form_with model: Article.new do |form| (maybe not local: true? unsure) %>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<%= content_tag :div, class: "container-fluid" do -%>
+
+<h1>New Article</h1>
 
 <%= form_with scope: :article, url: articles_path, local: true do |form| %>  
 
   <%= render 'form' %>
 <% end %>
 
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Back', articles_path, :class => "btn btn-primary btn-sm secondary-color-dark" %>
+
+<% end %>
+
+<%= render 'footer' %>
+
 
