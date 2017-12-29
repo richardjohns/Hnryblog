@@ -9,28 +9,65 @@
 
 <%= content_tag :div, class: "container-fluid" do -%>
 
-<%= content_tag :div, class: "media d-flex" do -%>
-    <%= content_tag :img, class: "align-self-start mr-3", src: "http://via.placeholder.com/64x64" do -%>
-    <%= content_tag :div, class: "media-body" do -%>
-        <h5 class="mt-0"><%= @article.title %></h5>
-        <p><%= @article.text %><p/>
+<!--Grid row-->
+    <div class="row">
+
+    <!--Grid column-->
+    <div class="col-lg-7 col-xl-7 pb-3">
+        <!--Excerpt-->
+        <a href="" class="blue-text">
+        <h6 class="font-bold pb-1">
+            <i class="fa fa-briefcase"></i> Contracting</h6>
+        </a>
+        <h3 class="mb-4 font-bold dark-grey-text">
+        <strong><%= @article.title %></strong>
+        </h3>
+        <p><%= @article.text %></p>
+        <p>by
+        <a>
+            <strong>Richard Johns</strong>
+        </a>, 29/12/2017</p>
         <%= link_to 'Edit', edit_article_path(@article), :class => "btn btn-primary btn-sm secondary-color-dark" %>
-        <hr />
+    </div>
+    <!--Grid column-->
 
-            <% @article.comments.each do |comment| %>
-                <div class="media mt-3">
-                    <a class="d-flex pr-3" href="#">
-                        <img src="https://placehold.it/64x64" alt="Generic placeholder image">
-                    </a>
-                    <div class="media-body">
-                            <h5 class="mt-0"><%= comment.commenter %></h5>
-                            <p><%= comment.body %></p><br />
-                    </div>
+    <!--Grid column-->
+    <div class="col-lg-5 col-xl-5 mb-5">
+        <!--Featured image-->
+        <div class="view overlay hm-white-slight rounded z-depth-2">
+        <img src="https://mdbootstrap.com/img/Photos/Others/img%20(34).jpg" alt="Second image in the first version of blog listing"
+            class="img-fluid">
+        <a>
+            <div class="mask"></div>
+        </a>
+        </div>
+    </div>
+    <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+    <hr class="mb-5 mt-4 pb-3">
+
+    <h5 class="mt-0">Comments</h5>
+
+<%= content_tag :div, class: "media d-flex" do -%>
+
+    <%= content_tag :div, class: "media-body" do -%>
+
+        <% @article.comments.each do |comment| %>
+            <div class="media mt-3">
+                <a class="d-flex pr-3" href="#">
+                    <img src="https://placehold.it/64x64" alt="Generic placeholder image">
+                </a>
+                <div class="media-body">
+                        <h5 class="mt-0"><%= comment.commenter %></h5>
+                        <p><%= comment.body %></p><br />
                 </div>
-                <hr />
-            <% end %>
+            </div>
+            <hr />
+        <% end %>
 
-    <% end -%>
     <% end -%>
 <% end -%>
 

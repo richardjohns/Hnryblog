@@ -23,6 +23,21 @@
      background-color: #2E2E2E;
  }
 
+ .footertitlefont {
+    font-family: 'Raleway', sans-serif;
+    color: #c5c5c5;
+ }
+
+  .footerfont {
+      font-family: 'Raleway', sans-serif;
+      color: #767676;
+  }
+
+  .iconremove {
+      color: #2E2E2E
+  }
+ 
+
  @media only screen and (max-width: 768px) {
      .navbar {
          background-color: #4285F4;
@@ -59,6 +74,34 @@
  .flex-center {
      color: #fff;
  }
+
+main {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.widget-wrapper {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+.list-group-item.active {
+    background-color: #33b5e5;
+    border-color: #33b5e5
+}
+
+.list-group-item:not(.active) {
+    color: #222;
+}
+
+.list-group-item:not(.active):hover {
+    color: #666;
+}
+
+.card {
+    font-weight: 300;
+}
 
  .navbar .btn-group .dropdown-menu a:hover {
      color: #000 !important;

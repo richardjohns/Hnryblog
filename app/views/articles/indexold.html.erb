@@ -19,7 +19,7 @@
             <!--Grid column-->
             <div class="col-lg-7 col-xl-7 pb-3">
                 <!--Excerpt-->
-                <a href="" class="blue-text">
+                <a href="" class="pink-text">
                 <h6 class="font-bold pb-1">
                     <i class="fa fa-image"></i> Contracting</h6>
                 </a>
@@ -31,7 +31,9 @@
                 <a>
                     <strong>Richard Johns</strong>
                 </a>, 29/12/2017</p>
+                <a class="btn secondary-color btn-md mb-3">Read more</a>
                 <tr>
+                    <a class="btn secondary-color btn-md mb-3">Read more</a>
                     <td><%= link_to 'Show', article_path(article), :class => "btn btn-primary btn-sm secondary-color-dark" %></td>
                     <td><%= link_to 'Edit', edit_article_path(article), :class => "btn btn-primary btn-sm secondary-color-dark" %></td>
                     <td><%= link_to 'Destroy',  article_path(article), :class => "btn btn-primary btn-sm secondary-color-dark",
@@ -58,6 +60,26 @@
             <!--Grid row-->
 
             <hr class="mb-5 mt-4 pb-3">
+
+            
+            <%= content_tag :div, class: "media d-flex" do -%>
+                <%= content_tag :img, class: "align-self-start mr-3", src: "http://via.placeholder.com/64x64" do -%>
+                <%= content_tag :div, class: "media-body" do -%>
+                    <h5 class="mt-0"><%= article.title %></h5>
+                    <p><%= article.text %><p/>
+                    <tr>
+                    <td><%= link_to 'Show', article_path(article), :class => "btn btn-primary btn-sm secondary-color-dark" %></td>
+                    <td><%= link_to 'Edit', edit_article_path(article), :class => "btn btn-primary btn-sm secondary-color-dark" %></td>
+                    <td><%= link_to 'Destroy',  article_path(article), :class => "btn btn-primary btn-sm secondary-color-dark",
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' } %></td>
+                    <tr/>
+                    <hr />
+
+                <% end -%>
+                <% end -%>
+            <% end -%>
+            =end
 
         <% end %>
         
