@@ -108,6 +108,7 @@ GEM
     octokit (4.8.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     parslet (1.8.1)
+    pg (0.21.0)
     popper (0.4.0)
       bundler
       mail
@@ -139,6 +140,11 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -218,10 +224,12 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mdb
+  pg
   popper
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-assets-tether
+  rails_12factor
   railties
   sass-rails (~> 5.0)
   selenium-webdriver
