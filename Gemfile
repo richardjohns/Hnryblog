@@ -37,6 +37,9 @@ gem 'mdb'
 gem 'popper'
 gem 'rails-assets-tether'
 gem 'font-awesome-sass'
+gem 'acts_as_list'
+gem 'webpacker', '~> 3.0'
+
 
 group :development, :test do
   gem 'sqlite3'
