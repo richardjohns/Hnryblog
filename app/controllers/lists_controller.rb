@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :move]
 
   # GET /lists
   # GET /lists.json
@@ -49,6 +49,11 @@ class ListsController < ApplicationController
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def move
+    @list.insert_at(list_params[:position].to_i)
+    render action: :show
   end
 
   # DELETE /lists/1
