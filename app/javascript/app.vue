@@ -31,16 +31,18 @@ export default {
   },
   methods: {
     listMoved: function(event) {
-      console.log(event)
       var data = new FormData
-      data.append("list[position]", event.newIndex + 1) // note not zero-indexed - starts at 1.
-
-       Rails.ajax({
-        url: `lists/${this.lists[event.newIndex].id}/move`,
+      console.log('This is data before: ',data)
+      // console.log('This is event: ',event)
+      // console.log('This is this.lists: ', this.lists)
+      data.append("list[position]", event.newIndex + 1)
+      console.log('This is data after: ',data)
+      Rails.ajax({
+        url: `/lists/${this.lists[event.newIndex].id}/move`,
         type: "PATCH",
         data: data,
         dataType: "json",
-        })
+      })
     },
     submitMessages: function(list_id) {
       var data = new FormData

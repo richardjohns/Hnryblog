@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy, :move]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :move, :mover]
 
   # GET /lists
   # GET /lists.json
@@ -51,11 +51,6 @@ class ListsController < ApplicationController
     end
   end
 
-  def move
-    @list.insert_at(list_params[:position].to_i)
-    render action: :show
-  end
-
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
@@ -66,6 +61,26 @@ class ListsController < ApplicationController
     end
   end
 
+  def move
+    # @list.insert_at(list_params[:position].to_i)
+    list = List.find_by(list_params[:id])
+    list.update(position: list_params[:position].to_i)
+    logger.debug "list_params.inspect: #{list_params.inspect}"
+    logger.debug "@list.inspect: #{@list.inspect}"
+      render action: :show
+  end
+
+  # def mover
+  #   @list = List.find(params[:id])
+  #   if @list.update_attributes(list_params)
+  #     # Handle a successful update.
+  #     render action: :show
+  #     render json: @list
+  #   else
+  #     render json: @list.errors, status: :unprocessable_entity
+  #   end
+  # end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_list
@@ -76,4 +91,5 @@ class ListsController < ApplicationController
     def list_params
       params.require(:list).permit(:name, :position)
     end
+
 end

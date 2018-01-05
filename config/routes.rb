@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   
   root 'articles#index'
   
-  resources :cards
-  
   resources :lists do
+    member do
+      patch :move
+    end
+  end
+
+  resources :cards do
     member do
       patch :move
     end

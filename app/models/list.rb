@@ -1,4 +1,6 @@
 class List < ApplicationRecord
+    include ActiveModel::Dirty
+
     acts_as_list
     has_many :cards, ->{ order(position: :asc)}, dependent: :destroy
 
