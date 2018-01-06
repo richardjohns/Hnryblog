@@ -16,7 +16,7 @@
             <input v-model="name" class="form-control"></input>
           </div>
           <div class="modal-footer">
-            <button @click="save" type="button" class="btn btn-primary">Save changes</button>
+            <button @click="save" type="button" class="btn btn-secondary">Save changes</button>
           </div>
         </div>
       </div>

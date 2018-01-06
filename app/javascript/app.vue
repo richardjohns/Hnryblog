@@ -1,4 +1,8 @@
 <template>
+
+  <div class="container-fluid">
+  <br />
+
   <draggable v-model="lists" :options="{group: 'lists'}" class="board dragArea" @end="listMoved">
     <list v-for="(list, index) in lists" :list="list"></list>
 
@@ -9,14 +13,14 @@
       <a v-if="editing" v-on:click="editing=false">Cancel</a>
     </div>
   </draggable>
+  </div>
 </template>
 
 <script>
-import draggable from "vuedraggable"
-import list from "components/list"
-
+import draggable from 'vuedraggable'
+import list from 'components/list'
 export default {
-  components: { draggable, list }, // gives access to draggable tag above when we render our template.
+  components: { draggable, list },
   props: ["original_lists"],
   data: function() {
     return {
@@ -32,11 +36,7 @@ export default {
     },
     listMoved: function(event) {
       var data = new FormData
-      // console.log('This is data before: ',data)
-      console.log('This is listMoved event: ',event)
-      // console.log('This is this.lists: ', this.lists)
       data.append("list[position]", event.newIndex + 1)
-      // console.log('This is data after: ',data)
       Rails.ajax({
         url: `/lists/${this.lists[event.newIndex].id}/move`,
         type: "PATCH",
@@ -44,6 +44,21 @@ export default {
         dataType: "json",
       })
     },
+    submitMessage: function() {
+      var data = new FormData
+      data.append("list[name]", this.message)
+      Rails.ajax({
+        url: "/lists",
+        type: "POST",
+        data: data,
+        dataType: "json",
+        success: (data) => {
+          window.store.lists.push(data)
+          this.message = ""
+          this.editing = false
+        }
+      })
+    }
   }
 }
 </script>

@@ -1,5 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'New List', new_list_path %>
+<%= render 'nav' %>
+
+<br />
+<br />
+<br />
+<br />
+
+<%= render 'jumbotron' %>
+
+<%# <%= link_to 'New List', new_list_path %>
 
 <%= tag.div id: :boards, data: { lists: @lists.to_json(include: :cards) } %>
+
+<%= render 'footer' %>
