@@ -1,0 +1,19 @@
+
+.dragArea[data-v-6fb8108a] {
+  min-height: 20px;
+}
+.board[data-v-6fb8108a] {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.list[data-v-6fb8108a] {
+  background: #E2E4E6;
+  border-radius: 3px;
+  vertical-align: top;
+  margin-right: 10px;
+  display: inline-block;
+  width: 270px;
+}
+
+
+/*# sourceMappingURL=application-081611b39c657e3a81e9062db0cd40b0.css.map*/
