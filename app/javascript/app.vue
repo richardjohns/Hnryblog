@@ -1,12 +1,14 @@
 <template>
-  <draggable id="app" :options="{group: 'lists'}" class="row dragArea" @end="listMoved">
+  <draggable v-model="lists" id="app" :options="{group: 'lists'}" class="row dragArea" @end="listMoved">
     <div v-for="(list, index) in lists" class="col-3">
     <h6>{{ list.name }}</h6>
     <hr />
 
+      <draggable v-model="list.cards" :options="{group: 'cards'}" class="dragArea" @change="cardMoved">
         <div v-for="(card, index) in list.cards" class="card card-body mb-3">
           {{ card.name }}
         </div>
+      </draggable>
 
         <div class="card card-body">
           <textarea v-model="messages[list.id]" class="form-control"></textarea>
@@ -30,13 +32,40 @@ export default {
     }
   },
   methods: {
+    cardMoved: function(event) {
+      console.log('This is cardMoved event: ',event)
+      const evt = event.added || event.moved
+
+      if (evt == undefined) { return }
+
+      const element = evt.element
+      console.log('This is element: ', element)
+      const list_index = this.lists.findIndex((list) => {
+        return list.cards.find((card) => {
+          return card.id === element.id
+        })
+      })
+
+      var data = new FormData
+      // console.log('This is data before: ',data)
+      // console.log('This is this.lists: ', this.lists)
+      data.append("card[list_id]", this.lists[list_index].id)
+      data.append("card[position]", evt.newIndex + 1)
+      // console.log('This is data after: ',data)
+      Rails.ajax({
+        url: `/cards/${element.id}/move`,
+        type: "PATCH",
+        data: data,
+        dataType: "json",
+      })
+    },
     listMoved: function(event) {
       var data = new FormData
-      console.log('This is data before: ',data)
-      // console.log('This is event: ',event)
+      // console.log('This is data before: ',data)
+      console.log('This is listMoved event: ',event)
       // console.log('This is this.lists: ', this.lists)
       data.append("list[position]", event.newIndex + 1)
-      console.log('This is data after: ',data)
+      // console.log('This is data after: ',data)
       Rails.ajax({
         url: `/lists/${this.lists[event.newIndex].id}/move`,
         type: "PATCH",
