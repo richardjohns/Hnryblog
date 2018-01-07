@@ -1,15 +1,3 @@
-# build stage
-FROM golang:alpine AS build-env
-ADD . /src
-RUN cd /src && go build -o goapp
-
-# final stage
-FROM alpine
-WORKDIR /app
-COPY --from=build-env /src/goapp /app/
-CMD ./goapp
-
-
 # FROM ruby:2.2.5
 
 # FROM heroku/ruby
@@ -22,26 +10,26 @@ CMD ./goapp
 # -- heroku container:push web
 # -- heroku open -a nameless-ravine-72662
 
-# FROM ruby:2.4.1
+FROM ruby:2.4.1
 
 # -- throw errors if Gemfile has been modified since Gemfile.lock
 # -- RUN bundle config --global frozen 1
 
-# RUN mkdir -p /usr/src/app
-# WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-# EXPOSE 3000
-# CMD ["rails", "server", "-b", "0.0.0.0"]
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
 
-# RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
-# RUN apt-get update && apt-get install -y mysql-client postgresql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y mysql-client postgresql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-# COPY Gemfile /usr/src/app/
+COPY Gemfile /usr/src/app/
 
 # -- Uncomment the line below if Gemfile.lock is maintained outside of build process
 # -- COPY Gemfile.lock /usr/src/app/
 
 
-# RUN bundle install
+RUN bundle install
 
-# COPY . /usr/src/app
+COPY . /usr/src/app

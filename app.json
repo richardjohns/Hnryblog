@@ -1,0 +1,5 @@
+{
+  "name": "blog",
+  "image": "heroku/ruby",
+  "addons": []
+}
