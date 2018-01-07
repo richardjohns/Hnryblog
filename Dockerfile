@@ -8,6 +8,7 @@
 # -- docker build ./ --tag hnryblog
 # -- docker run -p 3000:3000 hnryblog
 # -- heroku container:push web
+# -- heroku open -a nameless-ravine-72662
 
 FROM ruby:2.4.1
 
