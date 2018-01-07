@@ -1,14 +1,18 @@
-# FROM rails:onbuild
-# above was initial config
+# FROM ruby:2.2.5
 
-# docker build ./ --tag hnryblog
-# docker run -p 3000:3000 hnryblog
+# FROM heroku/ruby
+
+# FROM rails:onbuild
+# -- above was initial config
+
+# -- docker build ./ --tag hnryblog
+# -- docker run -p 3000:3000 hnryblog
+# -- heroku container:push web
 
 FROM ruby:2.4.1
-# was FROM ruby:2.3
 
-# throw errors if Gemfile has been modified since Gemfile.lock
-# RUN bundle config --global frozen 1
+# -- throw errors if Gemfile has been modified since Gemfile.lock
+# -- RUN bundle config --global frozen 1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -21,8 +25,8 @@ RUN apt-get update && apt-get install -y mysql-client postgresql-client sqlite3 
 
 COPY Gemfile /usr/src/app/
 
-# Uncomment the line below if Gemfile.lock is maintained outside of build process
-# COPY Gemfile.lock /usr/src/app/
+# -- Uncomment the line below if Gemfile.lock is maintained outside of build process
+# -- COPY Gemfile.lock /usr/src/app/
 
 
 RUN bundle install
