@@ -40,6 +40,8 @@ gem 'font-awesome-sass'
 gem 'acts_as_list'
 gem 'webpacker', '~> 3.0'
 gem 'ruby_dep', '~> 1.3'
+gem 'devise'
+gem "animate-rails"
 
 group :development, :test do
   gem 'sqlite3'
