@@ -47,15 +47,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="https://hnry.io/#contact">What we do</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/sign_up">Sign up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/sign_in">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="lists">Hnryboard</a>
-                    </li>
+                    <% if user_signed_in? %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/edit">Account</a>
+                        </li>
+                       <li class="nav-item">
+                            <a class="nav-link" rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
+                        </li>
+
+                    <% else %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/sign_up">Sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/sign_in">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lists">Hnryboard</a>
+                        </li>
+                    <% end %>
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More 
                             </a>
