@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require turbolinks
 //= require_tree .
 
@@ -21,3 +20,10 @@
 
 //= require mdb
 //= require tether
+
+//= require cable
+//= require formoid.min
+//= require jarallax.min
+//= require mbr-tabs
+//= require script
+//= require smooth-scroll

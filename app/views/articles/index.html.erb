@@ -7,11 +7,11 @@
 # for heroku deployment, brew install postgresql
 # gem install pg -v '0.21.0' %>
 
-<script>
+<!-- <script>
 $(document).ready(function(){
     $(".dropdown-toggle").dropdown("toggle");
 });
-</script>
+</script> -->
 
 <%= render 'nav' %>
 
@@ -21,8 +21,8 @@ $(document).ready(function(){
 
 <br />
 
-
 <%= content_tag :div, class: "container-fluid" do -%>
+
 
         <% if notice %><p class="notice"><% notice %></p><% end %>
         <% if alert %><p class="alert"><% alert %></p><% end %>

@@ -13,3 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( jquery-3.2.1.js )
+Rails.application.config.assets.precompile += %w( jarallax.min.js )
+Rails.application.config.assets.precompile += %w( smooth-scroll.js )
+Rails.application.config.assets.precompile += %w( formoid.min.js )
+Rails.application.config.assets.precompile += %w( mbr-tabs.js )
