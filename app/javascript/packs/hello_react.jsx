@@ -511,9 +511,14 @@ Hello.propTypes = {
   name: PropTypes.string
 }
 
+console.log('This is PropTypes: ', PropTypes)
+
 document.addEventListener('DOMContentLoaded', () => {
+  const node = document.getElementById('user_data')
+  const data = JSON.parse(node.getAttribute('data'))
+
   ReactDOM.render(
-    <Hello name="React" />,
+    <Hello props={data} />,
     document.body.appendChild(document.createElement('div')),
   )
 })

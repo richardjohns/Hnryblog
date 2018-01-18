@@ -1,9 +1,15 @@
+<%= javascript_include_tag "formoid.min", "application", 'data-turbolinks-track': true %>
+
 <%= javascript_include_tag "jquery-3.2.1", "application", 'data-turbolinks-track': true  %>
 <%= javascript_include_tag "jarallax.min", "application", 'data-turbolinks-track': true %>
 <%= javascript_include_tag "smooth-scroll", "application", 'data-turbolinks-track': true %>
-<%= javascript_include_tag "formoid.min", "application", 'data-turbolinks-track': true %>
 <%= javascript_include_tag "mbr-tabs", "application", 'data-turbolinks-track': true %>
 <%= stylesheet_pack_tag 'application' %>
+
+<%= content_tag :div,
+  id: "user_data",
+  data: @user.to_json do %>
+<% end %>
 
 <%= render 'nav' %>
 
