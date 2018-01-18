@@ -21,12 +21,16 @@ $(document).ready(function(){
 
 <br />
 
+
 <%= content_tag :div, class: "container-fluid" do -%>
-        
+
+        <% if notice %><p class="notice"><% notice %></p><% end %>
+        <% if alert %><p class="alert"><% alert %></p><% end %>
+
         <% @articles.each do |article| %>
 
             <!--Grid row-->
-            <div class="row">
+            <div class="row animated fadeInUp">
 
             <!--Grid column-->
             <div class="col-lg-7 col-xl-7 pb-3">
@@ -72,11 +76,9 @@ $(document).ready(function(){
             <hr class="mb-5 mt-4 pb-3">
 
         <% end %>
-        
+
 <%= link_to 'New article', new_article_path, :class => "btn btn-primary btn-sm secondary-color-dark" %>
 
 <% end -%>
 
 <%= render 'indexfooter' %>
-
-
